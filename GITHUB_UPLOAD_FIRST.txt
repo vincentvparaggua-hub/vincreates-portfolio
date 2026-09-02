@@ -1,0 +1,17 @@
+VINCREATES — FIRST GITHUB UPLOAD
+
+1. Extract this ZIP.
+2. OPEN the extracted folder.
+3. Select EVERYTHING INSIDE the folder (Ctrl+A).
+4. Drag those selected files/folders onto GitHub's "Upload files" page.
+5. Confirm the GitHub list begins with paths such as:
+   index.html
+   styles.css
+   script.js
+   projects.js
+   assets/...
+   NOT VINCREATES_GITHUB_UPLOAD_READY/index.html
+6. Every file in this package is below GitHub's browser upload limit.
+7. Commit message: Initial Vincreates portfolio deployment
+
+The 3D & CGI showreel is intentionally not included yet. Its reserved location is assets/showreel/.

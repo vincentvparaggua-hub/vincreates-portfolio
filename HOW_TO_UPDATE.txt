@@ -1,0 +1,32 @@
+VINCREATES — SIMPLE UPDATE GUIDE
+
+YOUR FULL-HD / 4K MEDIA
+You can use your own compressed Full-HD or 4K MP4 files directly.
+
+REPLACE A FEATURED VIDEO
+1. Copy your MP4 into: assets/videos/
+2. Open projects.js in Notepad or VS Code.
+3. Find the project title.
+4. Change only its video path, for example:
+   video:'assets/videos/my-new-jbl-fullhd.mp4'
+5. Save and refresh the website.
+
+REPLACE A THUMBNAIL
+1. Copy the JPG/PNG into assets/.
+2. In index.html, find the project title and change the img src path.
+3. In projects.js, change the matching poster path.
+
+ADD CASE-STUDY IMAGES
+1. Copy images into assets/gallery/.
+2. In projects.js add them to gallery:[...] for that project.
+
+3D & CGI SHOWREEL
+When the reel is finished, copy it to:
+   assets/showreel/vincreates-3d-showreel.mp4
+The site currently keeps a reserved showreel preview. The final player will be wired in before publishing.
+
+IMPORTANT
+- Use MP4/H.264 for the widest browser compatibility.
+- Keep filenames simple: lowercase letters, numbers, and hyphens.
+- Do not delete a media file until its reference has been changed in projects.js/index.html.
+- Keep master-quality originals backed up separately.

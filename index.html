@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Vincreates — portfolio of Vincent Paraggua, 3D artist, motion designer and multimedia artist." />
+  <meta name="theme-color" content="#0b0b0b" />
+  <meta property="og:title" content="Vincreates — Vincent Paraggua" />
+  <meta property="og:description" content="3D animation, CGI, motion design, VFX and professional multimedia work." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/jbl.jpg" />
+  <title>Vincreates — Vincent Paraggua</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="noise"></div>
+<header class="site-header">
+  <a href="#top" class="brand">VIN<span>CREATES</span></a>
+  <nav class="nav"><a href="#featured">Featured</a><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+  <a class="button small" href="assets/docs/Vincent_Paraggua_CV.docx" download>Download CV</a>
+</header>
+<main id="top">
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">3D ARTIST · MOTION DESIGNER · MULTIMEDIA ARTIST</p>
+      <h1>I create visuals that <span>move, immerse, and tell stories.</span></h1>
+      <p class="hero-text">3D animation, motion design, CGI, visual effects, event visuals, advertising and digital content.</p>
+      <div class="hero-actions"><a class="button" href="#featured">View featured work</a><a class="text-link" href="mailto:vincentvparaggua@gmail.com">Start a conversation ↗</a></div>
+      <div class="availability"><span class="dot"></span> Open to freelance and full-time opportunities</div>
+    </div>
+    <div class="hero-reel" id="showreel" aria-label="3D and CGI showreel">
+      <video id="showreelVideo" controls playsinline preload="metadata" poster="assets/jbl.jpg" hidden>
+        <source src="assets/showreel/vincreates-3d-showreel.mp4" type="video/mp4">
+      </video>
+      <div class="hero-collage" id="showreelPlaceholder" aria-label="Selected 3D and CGI work — showreel coming soon">
+        <img src="assets/jbl.jpg" alt="JBL CGI work">
+        <img src="assets/witch-house.png" alt="The Witch House 3D environment">
+        <img src="assets/gthing.jpg" alt="GThing Freshness CGI work">
+        <img src="assets/dragon-cry.jpg" alt="Dragon Cry CGI and VFX project">
+      </div>
+      <div class="hero-reel-label"><span>3D & CGI SHOWREEL</span><small>Reel coming soon</small></div>
+    </div>
+  </section>
+
+  <section class="section intro-strip"><p>Selected disciplines</p><div class="ticker"><span>3D & CGI</span><span>COMMERCIAL CGI</span><span>MOTION GRAPHICS</span><span>EVENT VISUALS</span><span>VFX & COMPOSITING</span><span>2D ANIMATION</span><span>BRAND IDENTS</span></div></section>
+
+  <section class="section" id="featured">
+    <div class="section-heading"><div><p class="eyebrow">FEATURED WORK</p><h2>Selected projects.</h2></div><p class="section-note">A focused selection across commercial CGI, VFX, environment design, motion graphics and professional multimedia production.</p></div>
+    <div class="featured-grid">
+      <article class="project-card hero-project clickable-project" tabindex="0" role="button" data-project="jbl"><div class="media"><img src="assets/jbl.jpg" alt="JBL CGI product advertisement thumbnail"></div><div class="project-info"><p class="tag">COMMERCIAL CGI · PRODUCT VISUALIZATION</p><h3>JBL — CGI Product Advertisement</h3><p>Independent spec commercial combining product visualization, lighting, animation and cinematic editing.</p></div></article>
+      <article class="project-card clickable-project" tabindex="0" role="button" data-project="dragon"><div class="media"><img src="assets/dragon-cry.jpg" alt="Dragon Cry fan adaptation"></div><div class="project-info"><p class="tag">VFX · 3D & CGI · CINEMATIC EDITING</p><h3>Dragon Cry — Live-Action Fan Adaptation</h3><p>A fan-made cinematic adaptation combining environments, creature animation, destruction and compositing.</p></div></article>
+      <article class="project-card clickable-project" tabindex="0" role="button" data-project="gthing"><div class="media"><img src="assets/gthing.jpg" alt="GThing Freshness CGI thumbnail"></div><div class="project-info"><p class="tag">COMMERCIAL CGI · PRODUCT ANIMATION</p><h3>GThing Freshness — CGI Beverage Advertisement</h3><p>Stylized beverage CGI with product animation and fluid/ice-inspired visuals.</p></div></article>
+      <article class="project-card clickable-project" tabindex="0" role="button" data-project="vinfizz"><div class="media"><img src="assets/vinfizz.jpg" alt="VinFizz Cherry CGI thumbnail"></div><div class="project-info"><p class="tag">COMMERCIAL CGI · PRODUCT ANIMATION</p><h3>VinFizz Cherry — CGI Beverage Advertisement</h3><p>Product-focused beverage animation built around cherries, liquid motion and a vivid ad aesthetic.</p></div></article>
+      <article class="project-card clickable-project" tabindex="0" role="button" data-project="witch"><div class="media"><img src="assets/witch-house.png" alt="The Witch House 3D environment"></div><div class="project-info"><p class="tag">3D ENVIRONMENT · LIGHTING</p><h3>The Witch House</h3><p>A cinematic fantasy environment focused on atmosphere, composition and visual storytelling.</p></div></article>
+      <article class="project-card clickable-project" tabindex="0" role="button" data-project="dict"><div class="media"><img src="assets/dict.jpg" alt="DICT motion graphics project"></div><div class="project-info"><p class="tag">PROFESSIONAL MOTION GRAPHICS · EVENT VISUALS</p><h3>DICT — 45th Anniversary Motion Graphics</h3><p>A full motion-graphics production created for a DICT event during professional work.</p></div></article>
+      <article class="project-card wide-project clickable-project" tabindex="0" role="button" data-project="professional"><div class="media"><img src="assets/professional-work.jpg" alt="Professional multimedia and event productions"></div><div class="project-info"><p class="tag">PROFESSIONAL WORK · MULTIMEDIA · EVENT VISUALS</p><h3>Professional Multimedia & Event Productions</h3><p>Selected professional work across event visuals, motion graphics, OBBs, 3D/2D animation and branded productions.</p></div></article>
+    </div>
+  </section>
+
+  <section class="section" id="work">
+    <div class="section-heading"><div><p class="eyebrow">MORE WORK</p><h2>Additional visual work.</h2></div><p class="section-note">A broader look at environment design, motion and production work.</p></div>
+    <div class="filters"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="3d">3D & CGI</button><button class="filter" data-filter="motion">Motion Graphics</button><button class="filter" data-filter="event">Event Visuals</button></div>
+    <div class="work-grid">
+      <article class="work-card" data-category="3d"><div class="media"><img src="assets/gallery/sugar-rush.png" alt="Sugar Rush environment"></div><div class="card-copy"><div><p class="tag">3D ENVIRONMENT</p><h3>Sugar Rush — Stylized Environment</h3></div><p>Candy-inspired world building with stylized lighting, composition and environmental storytelling.</p></div></article>
+      <article class="work-card" data-category="3d"><div class="media"><img src="assets/gallery/rural-homestead.png" alt="Rural homestead 3D environment"></div><div class="card-copy"><div><p class="tag">3D ENVIRONMENT</p><h3>Rural Homestead</h3></div><p>Environment study focused on terrain, vegetation, architecture and natural daylight.</p></div></article>
+      <article class="work-card" data-category="3d"><div class="media"><img src="assets/gallery/apocalyptic-environment.png" alt="Burning city environment"></div><div class="card-copy"><div><p class="tag">3D · CINEMATIC ENVIRONMENT</p><h3>Burning City Study</h3></div><p>Large-scale cinematic environment exploration built around atmosphere, fire and destruction.</p></div></article>
+      <article class="work-card" data-category="motion event"><div class="media"><img src="assets/gallery/motion-01.jpg" alt="Motion graphics frame"></div><div class="card-copy"><div><p class="tag">MOTION GRAPHICS</p><h3>Event Motion Design</h3></div><p>Selected motion graphics developed for live-screen and event presentation contexts.</p></div></article>
+      <article class="work-card" data-category="motion event"><div class="media"><img src="assets/gallery/motion-02.jpg" alt="Motion graphics frame"></div><div class="card-copy"><div><p class="tag">MOTION · EVENT VISUALS</p><h3>Branded Event Visuals</h3></div><p>Graphic animation, transitions and visual systems built for professional multimedia productions.</p></div></article>
+      <article class="work-card" data-category="motion"><div class="media"><img src="assets/gallery/motion-03.jpg" alt="Motion graphics frame"></div><div class="card-copy"><div><p class="tag">MOTION DESIGN</p><h3>Motion Graphics Studies</h3></div><p>Selected visual-development frames from longer motion-design productions.</p></div></article>
+    </div>
+  </section>
+
+  <section class="section experience" id="about">
+    <div class="section-heading"><div><p class="eyebrow">ABOUT & EXPERIENCE</p><h2>Multidisciplinary creative focused on 3D and motion.</h2></div></div>
+    <div class="about-layout">
+      <div class="about-copy"><p>I’m Vincent Paraggua, a multimedia artist and 3D generalist working across animation, CGI, motion graphics, VFX, event visuals and video production. My background combines professional production work, freelance creative projects and teaching multimedia arts.</p><p>I enjoy taking projects from concept through final delivery—building environments, animating visuals, compositing shots and shaping the final edit into a cohesive experience.</p></div>
+      <div class="timeline">
+        <div><span>PROFESSIONAL</span><h3>Motion Graphics Artist</h3><p>Smarter Multimedia Services</p></div>
+        <div><span>EDUCATION</span><h3>Multimedia Arts Instructor</h3><p>Cagayan State University · 2022–2025</p></div>
+        <div><span>FREELANCE</span><h3>3D Generalist / Animator</h3><p>Independent projects and client work · Since 2022</p></div>
+      </div>
+    </div>
+    <div class="skills"><span>Blender</span><span>After Effects</span><span>Premiere Pro</span><span>Photoshop</span><span>3D Modeling</span><span>Lighting & Rendering</span><span>Motion Design</span><span>Compositing</span><span>Video Editing</span><span>Event Visuals</span></div>
+  </section>
+
+  <section class="section process"><div class="section-heading"><div><p class="eyebrow">PROCESS</p><h2>From idea to final output.</h2></div></div><div class="process-grid"><div><span>01</span><h3>Concept</h3><p>Reference gathering, mood, story and visual direction.</p></div><div><span>02</span><h3>Create</h3><p>3D, animation, compositing, design and editing.</p></div><div><span>03</span><h3>Polish</h3><p>Lighting, grading, timing, effects and revisions.</p></div><div><span>04</span><h3>Deliver</h3><p>Optimized output for campaigns, events, social and video.</p></div></div></section>
+
+  <section class="section contact" id="contact">
+    <p class="eyebrow">CONTACT</p><h2>Have a project or opportunity?</h2><p>Available for freelance collaborations and full-time creative roles.</p>
+    <div class="contact-links"><a href="mailto:vincentvparaggua@gmail.com">vincentvparaggua@gmail.com ↗</a><a href="https://www.facebook.com/VinCreatesss/" target="_blank" rel="noopener">Vincreates on Facebook ↗</a><a href="assets/docs/Vincent_Paraggua_CV.docx" download>Download CV ↓</a></div>
+    <p class="location">San Pablo, Isabela · Philippines</p>
+  </section>
+</main>
+
+<div class="project-modal" id="projectModal" aria-hidden="true">
+  <div class="modal-backdrop" data-close-modal></div>
+  <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" type="button" data-close-modal aria-label="Close project">×</button>
+    <div class="modal-media" id="modalMedia"></div>
+    <div class="modal-content">
+      <p class="eyebrow" id="modalType"></p><h2 id="modalTitle"></h2><p class="modal-lead" id="modalDescription"></p>
+      <div class="case-grid"><div><span>ROLE</span><p id="modalRole"></p></div><div><span>TOOLS / DISCIPLINES</span><p id="modalTools"></p></div><div><span>PROJECT TYPE</span><p id="modalProjectType"></p></div></div>
+      <div class="case-note"><h3>Project overview</h3><p id="modalOverview"></p></div>
+      <div class="modal-gallery" id="modalGallery"></div>
+    </div>
+  </section>
+</div>
+
+<footer><span>© <span id="year"></span> Vincreates · Vincent Paraggua</span><span>3D · Motion · CGI · VFX · Multimedia</span></footer>
+<script src="projects.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
