@@ -23,6 +23,13 @@ const showreelPlaceholder = document.getElementById('showreelPlaceholder');
 if (showreelVideo) {
   showreelVideo.hidden = false;
 
+  // Keep muted so browsers allow autoplay
+  showreelVideo.muted = true;
+  showreelVideo.defaultMuted = true;
+
+  // Start the reel automatically
+  showreelVideo.play().catch(() => {});
+
   if (showreelPlaceholder) {
     showreelPlaceholder.hidden = true;
   }
