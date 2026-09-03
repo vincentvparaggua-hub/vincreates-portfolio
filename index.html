@@ -14,6 +14,60 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+
+<style>
+.portfolio-preview{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  background:#050505;
+}
+.media-project-card .card-copy .text-link{
+  margin-top:12px;
+  padding:0;
+  border:0;
+  background:none;
+  font:inherit;
+  cursor:pointer;
+}
+.media-project-modal{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:none;
+}
+.media-project-modal.is-open{
+  display:block;
+}
+.media-project-modal .modal-backdrop{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.78);
+}
+.media-project-panel{
+  position:relative;
+  z-index:1;
+  max-width:1100px;
+  max-height:90vh;
+  overflow:auto;
+  margin:5vh auto;
+}
+.media-project-gallery{
+  display:grid;
+  gap:18px;
+}
+.media-project-gallery video{
+  width:100%;
+  max-height:70vh;
+  background:#000;
+  border-radius:16px;
+}
+@media (max-width:760px){
+  .media-project-panel{margin:2vh 12px;max-height:96vh;}
+}
+</style>
+
 </head>
 <body>
 <div class="noise"></div>
@@ -107,6 +161,7 @@
       <div><p class="eyebrow">3D ANIMATION</p><h2>3D Animation.</h2></div>
       <p class="section-note"><a class="text-link" href="#work" data-back-categories>← Back to categories</a></p>
     </div>
+
     <div class="work-grid">
       <article class="work-card clickable-project" tabindex="0" role="button" data-project="jbl">
         <div class="media"><img src="assets/jbl.jpg" alt="JBL CGI product advertisement"></div>
@@ -123,44 +178,44 @@
         <div class="card-copy"><div><p class="tag">3D ANIMATION · PRODUCT CGI</p><h3>VinFizz Cherry</h3></div><p>Product-focused beverage animation with cherries, liquid motion and vivid art direction.</p></div>
       </article>
 
-      <article class="work-card">
-        <div class="media"><video muted playsinline preload="metadata"><source src="assets/videos/3D Animation/King A Burger.mp4" type="video/mp4"></video></div>
-        <div class="card-copy"><div><p class="tag">3D ANIMATION · PRODUCT / FOOD</p><h3>King A Burger</h3></div><p>Stylized 3D animation built around a food-focused visual concept.</p></div>
+      <article class="work-card media-project-card">
+        <div class="media"><video class="portfolio-preview" controls muted playsinline preload="metadata" src="assets/videos/3D Animation/King A Burger.mp4"></video></div>
+        <div class="card-copy"><div><p class="tag">3D ANIMATION · PRODUCT / FOOD</p><h3>King A Burger</h3></div><p>Stylized 3D animation built around a food-focused visual concept.</p><button class="text-link media-project-open" type="button" data-title="King A Burger" data-videos='["assets/videos/3D Animation/King A Burger.mp4"]'>View full project ↗</button></div>
       </article>
 
-      <article class="work-card">
-        <div class="media"><video muted playsinline preload="metadata"><source src="assets/videos/3D Animation/Sea Monster.mp4" type="video/mp4"></video></div>
-        <div class="card-copy"><div><p class="tag">3D ANIMATION · CINEMATIC</p><h3>Sea Monster</h3></div><p>Cinematic 3D sequence exploring scale, atmosphere and creature-focused storytelling.</p></div>
+      <article class="work-card media-project-card">
+        <div class="media"><video class="portfolio-preview" controls muted playsinline preload="metadata" src="assets/videos/3D Animation/Sea Monster.mp4"></video></div>
+        <div class="card-copy"><div><p class="tag">3D ANIMATION · CINEMATIC</p><h3>Sea Monster</h3></div><p>Cinematic 3D sequence exploring scale, atmosphere and creature-focused storytelling.</p><button class="text-link media-project-open" type="button" data-title="Sea Monster" data-videos='["assets/videos/3D Animation/Sea Monster.mp4"]'>View full project ↗</button></div>
       </article>
 
-      <article class="work-card">
-        <div class="media"><video muted playsinline preload="metadata"><source src="assets/videos/3D Animation/University 46Th Anniversary.mp4" type="video/mp4"></video></div>
-        <div class="card-copy"><div><p class="tag">3D ANIMATION · EVENT VISUAL</p><h3>University 46th Anniversary</h3></div><p>3D animation created as an anniversary visual presentation.</p></div>
+      <article class="work-card media-project-card">
+        <div class="media"><video class="portfolio-preview" controls muted playsinline preload="metadata" src="assets/videos/3D Animation/University 46Th Anniversary.mp4"></video></div>
+        <div class="card-copy"><div><p class="tag">3D ANIMATION · EVENT VISUAL</p><h3>University 46th Anniversary</h3></div><p>3D animation created as an anniversary visual presentation.</p><button class="text-link media-project-open" type="button" data-title="University 46th Anniversary" data-videos='["assets/videos/3D Animation/University 46Th Anniversary.mp4"]'>View full project ↗</button></div>
       </article>
 
-      <article class="work-card">
-        <div class="media"><video muted playsinline preload="metadata"><source src="assets/videos/3D Animation/Cyberfil Animation.mp4" type="video/mp4"></video></div>
-        <div class="card-copy"><div><p class="tag">3D ANIMATION · CYBER / TECH</p><h3>Cyberfil — 3D Animation</h3></div><p>Technology-inspired animation combining 3D visual development and motion.</p></div>
+      <article class="work-card media-project-card">
+        <div class="media"><video class="portfolio-preview" controls muted playsinline preload="metadata" src="assets/videos/3D Animation/Cyberfil Animation.mp4"></video></div>
+        <div class="card-copy"><div><p class="tag">3D ANIMATION · CYBER / TECH</p><h3>Cyberfil — 3D Animation</h3></div><p>Technology-inspired animation combining 3D visual development and motion.</p><button class="text-link media-project-open" type="button" data-title="Cyberfil — 3D Animation" data-videos='["assets/videos/3D Animation/Cyberfil Animation.mp4"]'>View full project ↗</button></div>
       </article>
 
-      <article class="work-card">
-        <div class="media"><video muted playsinline preload="metadata"><source src="assets/videos/3D Animation/Ykulba Animation.mp4" type="video/mp4"></video></div>
-        <div class="card-copy"><div><p class="tag">3D ANIMATION · CINEMATIC</p><h3>Ykulba — 3D Animation</h3></div><p>Short-form 3D animation developed around a cinematic branded presentation.</p></div>
+      <article class="work-card media-project-card">
+        <div class="media"><video class="portfolio-preview" controls muted playsinline preload="metadata" src="assets/videos/3D Animation/Ykulba Animation.mp4"></video></div>
+        <div class="card-copy"><div><p class="tag">3D ANIMATION · CINEMATIC</p><h3>Ykulba — 3D Animation</h3></div><p>Short-form 3D animation developed around a cinematic branded presentation.</p><button class="text-link media-project-open" type="button" data-title="Ykulba — 3D Animation" data-videos='["assets/videos/3D Animation/Ykulba Animation.mp4"]'>View full project ↗</button></div>
       </article>
 
-      <article class="work-card">
-        <div class="media"><video muted playsinline preload="metadata"><source src="assets/videos/3D Animation/Basketball League Intro.mp4" type="video/mp4"></video></div>
-        <div class="card-copy"><div><p class="tag">3D ANIMATION · SPORTS INTRO</p><h3>Basketball League — Intro & Logo Animation</h3></div><p>Grouped sports package combining the league intro and animated logo sequence.</p></div>
+      <article class="work-card media-project-card">
+        <div class="media"><video class="portfolio-preview" controls muted playsinline preload="metadata" src="assets/videos/3D Animation/Basketball League Intro.mp4"></video></div>
+        <div class="card-copy"><div><p class="tag">3D ANIMATION · SPORTS PACKAGE</p><h3>Basketball League — Intro & Logo Animation</h3></div><p>Grouped sports package combining the league intro and animated logo sequence.</p><button class="text-link media-project-open" type="button" data-title="Basketball League — Intro & Logo Animation" data-videos='["assets/videos/3D Animation/Basketball League Intro.mp4","assets/videos/3D Animation/Basketball League LOGO.mp4"]'>View both videos ↗</button></div>
       </article>
 
-      <article class="work-card">
-        <div class="media"><video muted playsinline preload="metadata"><source src="assets/videos/3D Animation/Gthing Freshness Teaser Ads.mp4" type="video/mp4"></video></div>
-        <div class="card-copy"><div><p class="tag">3D ANIMATION · TEASER</p><h3>GThing Freshness — Teaser Animation</h3></div><p>Companion teaser animation developed for the GThing Freshness CGI concept.</p></div>
+      <article class="work-card media-project-card">
+        <div class="media"><video class="portfolio-preview" controls muted playsinline preload="metadata" src="assets/videos/3D Animation/Gthing Freshness Teaser Ads.mp4"></video></div>
+        <div class="card-copy"><div><p class="tag">3D ANIMATION · TEASER</p><h3>GThing Freshness — Teaser Animation</h3></div><p>Companion teaser animation developed for the GThing Freshness CGI concept.</p><button class="text-link media-project-open" type="button" data-title="GThing Freshness — Teaser Animation" data-videos='["assets/videos/3D Animation/Gthing Freshness Teaser Ads.mp4"]'>View full project ↗</button></div>
       </article>
 
-      <article class="work-card">
-        <div class="media"><video muted playsinline preload="metadata"><source src="assets/videos/3D Animation/Zooming in/Zooming In 1.mp4" type="video/mp4"></video></div>
-        <div class="card-copy"><div><p class="tag">3D ANIMATION · ENVIRONMENT SERIES</p><h3>Zooming In — 3D Environment Series</h3></div><p>Grouped four-part animation series exploring different 3D environments and cinematic camera movement.</p></div>
+      <article class="work-card media-project-card">
+        <div class="media"><video class="portfolio-preview" controls muted playsinline preload="metadata" src="assets/videos/3D Animation/Zooming in/Zooming In 1.mp4"></video></div>
+        <div class="card-copy"><div><p class="tag">3D ANIMATION · ENVIRONMENT SERIES</p><h3>Zooming In — 3D Environment Series</h3></div><p>Grouped four-part animation series exploring different 3D environments and cinematic camera movement.</p><button class="text-link media-project-open" type="button" data-title="Zooming In — 3D Environment Series" data-videos='["assets/videos/3D Animation/Zooming in/Zooming In 1.mp4","assets/videos/3D Animation/Zooming in/Zooming In 2.mp4","assets/videos/3D Animation/Zooming in/Zooming In 3.mp4","assets/videos/3D Animation/Zooming in/Zooming In 4.mp4"]'>View all 4 videos ↗</button></div>
       </article>
     </div>
   </section>
@@ -257,6 +312,19 @@
   </section>
 </div>
 
+
+<div class="media-project-modal" id="mediaProjectModal" aria-hidden="true">
+  <div class="modal-backdrop" data-close-media-project></div>
+  <section class="modal-panel media-project-panel" role="dialog" aria-modal="true" aria-labelledby="mediaProjectTitle">
+    <button class="modal-close" type="button" data-close-media-project aria-label="Close project">×</button>
+    <div class="modal-content">
+      <p class="eyebrow">3D ANIMATION</p>
+      <h2 id="mediaProjectTitle"></h2>
+      <div class="modal-gallery media-project-gallery" id="mediaProjectGallery"></div>
+    </div>
+  </section>
+</div>
+
 <footer><span>© <span id="year"></span> Vincreates · Vincent Paraggua</span><span>3D · Motion · CGI · VFX · Multimedia</span></footer>
 <script src="projects.js"></script>
 <script src="script.js"></script>
@@ -309,6 +377,75 @@
       event.preventDefault();
       showCategories();
     });
+  });
+})();
+</script>
+
+
+<script>
+(() => {
+  const modal = document.getElementById('mediaProjectModal');
+  const title = document.getElementById('mediaProjectTitle');
+  const gallery = document.getElementById('mediaProjectGallery');
+
+  document.querySelectorAll('.portfolio-preview').forEach(video => {
+    video.addEventListener('loadedmetadata', () => {
+      try {
+        if (video.duration > 0.15 && video.currentTime === 0) video.currentTime = 0.1;
+      } catch (_) {}
+    }, { once: true });
+  });
+
+  function closeMediaProject() {
+    if (!modal) return;
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    if (gallery) {
+      gallery.querySelectorAll('video').forEach(v => v.pause());
+      gallery.innerHTML = '';
+    }
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.media-project-open').forEach(button => {
+    button.addEventListener('click', () => {
+      if (!modal || !gallery || !title) return;
+      let videos = [];
+      try { videos = JSON.parse(button.dataset.videos || '[]'); } catch (_) {}
+      if (!videos.length) return;
+
+      title.textContent = button.dataset.title || 'Project';
+      gallery.innerHTML = '';
+
+      videos.forEach((src, index) => {
+        const wrap = document.createElement('div');
+        const label = document.createElement('p');
+        label.className = 'tag';
+        label.textContent = videos.length > 1 ? `VIDEO ${index + 1} OF ${videos.length}` : 'PROJECT VIDEO';
+
+        const video = document.createElement('video');
+        video.controls = true;
+        video.playsInline = true;
+        video.preload = 'metadata';
+        video.src = src;
+
+        wrap.appendChild(label);
+        wrap.appendChild(video);
+        gallery.appendChild(wrap);
+      });
+
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  document.querySelectorAll('[data-close-media-project]').forEach(el => {
+    el.addEventListener('click', closeMediaProject);
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && modal?.classList.contains('is-open')) closeMediaProject();
   });
 })();
 </script>
