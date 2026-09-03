@@ -103,20 +103,67 @@
 }
 
 
-/* Universal video-card play indicator */
-.video-card .media,.media-project-card .media{position:relative;overflow:hidden}
-.video-card .media::after,.media-project-card .media::after{
- content:"▶";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
- width:48px;height:48px;display:grid;place-items:center;padding-left:3px;border-radius:50%;
- border:1px solid rgba(255,255,255,.72);background:rgba(0,0,0,.48);color:#fff;
- font-size:16px;line-height:1;box-shadow:0 8px 28px rgba(0,0,0,.35);pointer-events:none;z-index:3;
- transition:transform .2s ease,background .2s ease,border-color .2s ease}
-.video-card .media img,.video-card .media video,.media-project-card .media img,.media-project-card .media video{
- filter:brightness(.78);transition:filter .2s ease,transform .25s ease}
-.video-card:hover .media img,.video-card:hover .media video,.media-project-card:hover .media img,.media-project-card:hover .media video{filter:brightness(.94)}
-.video-card:hover .media::after,.media-project-card:hover .media::after{
- transform:translate(-50%,-50%) scale(1.08);background:rgba(0,0,0,.62);border-color:#adff2f}
-.video-error-note{z-index:4}
+/* Readability improvements */
+.site-header .brand{
+  font-size:clamp(18px,1.35vw,22px) !important;
+  letter-spacing:-.04em;
+}
+.site-header .nav a{
+  font-size:14px !important;
+}
+.eyebrow{
+  font-size:12px !important;
+  letter-spacing:.09em;
+}
+.hero-text{
+  font-size:17px !important;
+  line-height:1.55 !important;
+}
+.availability{
+  font-size:13px !important;
+}
+.intro-strip > p{
+  font-size:13px !important;
+}
+.ticker span{
+  font-size:12px !important;
+}
+.section-note{
+  font-size:15px !important;
+  line-height:1.5 !important;
+}
+.tag{
+  font-size:11px !important;
+  line-height:1.35 !important;
+}
+.project-info > p:not(.tag),
+.card-copy > p,
+.about-copy p,
+.process-grid p,
+.timeline p,
+.contact > p{
+  font-size:15px !important;
+  line-height:1.55 !important;
+}
+.text-link{
+  font-size:14px;
+}
+.hero-reel-label span{
+  font-size:11px !important;
+}
+.hero-reel-label small{
+  font-size:11px !important;
+}
+footer{
+  font-size:13px !important;
+}
+
+@media (max-width:760px){
+  .site-header .brand{font-size:18px !important;}
+  .site-header .nav a{font-size:13px !important;}
+  .hero-text{font-size:16px !important;}
+  .section-note{font-size:14px !important;}
+}
 
 </style>
 
