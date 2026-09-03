@@ -66,6 +66,42 @@
 @media (max-width:760px){
   .media-project-panel{margin:2vh 12px;max-height:96vh;}
 }
+
+.media-project-card .media{
+  position:relative;
+}
+.portfolio-preview.video-error{
+  background:
+    radial-gradient(circle at 50% 42%, rgba(173,255,47,.08), transparent 38%),
+    linear-gradient(135deg,#121512,#060706);
+}
+.video-error-note{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  padding:24px;
+  text-align:center;
+  background:
+    radial-gradient(circle at 50% 38%, rgba(173,255,47,.07), transparent 35%),
+    linear-gradient(135deg,rgba(15,18,15,.95),rgba(4,5,4,.96));
+  color:#f5f5f2;
+  pointer-events:none;
+}
+.video-error-note strong{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:16px;
+}
+.video-error-note span{
+  max-width:260px;
+  color:#a9aea9;
+  font-size:12px;
+  line-height:1.45;
+}
+
 </style>
 
 </head>
@@ -215,7 +251,7 @@
 
       <article class="work-card media-project-card">
         <div class="media"><video class="portfolio-preview" controls muted playsinline preload="metadata" src="assets/videos/3D Animation/Zooming in/Zooming In 1.mp4"></video></div>
-        <div class="card-copy"><div><p class="tag">3D ANIMATION · ENVIRONMENT SERIES</p><h3>Zooming In — 3D Environment Series</h3></div><p>Grouped four-part animation series exploring different 3D environments and cinematic camera movement.</p><button class="text-link media-project-open" type="button" data-title="Zooming In — 3D Environment Series" data-videos='["assets/videos/3D Animation/Zooming in/Zooming In 1.mp4","assets/videos/3D Animation/Zooming in/Zooming In 2.mp4","assets/videos/3D Animation/Zooming in/Zooming In 3.mp4","assets/videos/3D Animation/Zooming in/Zooming In 4.mp4"]'>View all 4 videos ↗</button></div>
+        <div class="card-copy"><div><p class="tag">3D ANIMATION · ENVIRONMENT SERIES</p><h3>Zooming In — 3D Environment Series</h3></div><p>Grouped four-part animation series exploring different 3D environments and cinematic camera movement.</p><button class="text-link media-project-open" type="button" data-title="Zooming In — 3D Environment Series" data-videos='["assets/videos/3D Animation/Zooming in/Zooming In 1.mp4","assets/videos/3D Animation/Zooming in/Zooming In 2.mp4","assets/videos/3D Animation/Zooming in/zooming in 3.mp4","assets/videos/3D Animation/Zooming in/Zooming In 4.mp4"]'>View all 4 videos ↗</button></div>
       </article>
     </div>
   </section>
@@ -389,11 +425,38 @@
   const gallery = document.getElementById('mediaProjectGallery');
 
   document.querySelectorAll('.portfolio-preview').forEach(video => {
-    video.addEventListener('loadedmetadata', () => {
+    const choosePreviewFrame = () => {
       try {
-        if (video.duration > 0.15 && video.currentTime === 0) video.currentTime = 0.1;
+        if (!Number.isFinite(video.duration) || video.duration <= 0) return;
+        const previewTime = Math.min(
+          Math.max(1.0, video.duration * 0.12),
+          Math.max(1.0, video.duration - 0.25)
+        );
+        video.currentTime = previewTime;
       } catch (_) {}
+    };
+
+    video.addEventListener('loadedmetadata', choosePreviewFrame, { once: true });
+
+    video.addEventListener('seeked', () => {
+      try { video.pause(); } catch (_) {}
     }, { once: true });
+
+    video.addEventListener('play', () => {
+      if (video.dataset.userStarted === 'yes') return;
+      video.dataset.userStarted = 'yes';
+      try { video.currentTime = 0; } catch (_) {}
+    }, { once: true });
+
+    video.addEventListener('error', () => {
+      const media = video.closest('.media');
+      if (!media || media.querySelector('.video-error-note')) return;
+      video.classList.add('video-error');
+      const note = document.createElement('div');
+      note.className = 'video-error-note';
+      note.innerHTML = '<strong>Video preview unavailable</strong><span>Open the project after this file is re-encoded for browser playback.</span>';
+      media.appendChild(note);
+    });
   });
 
   function closeMediaProject() {
@@ -428,6 +491,13 @@
         video.playsInline = true;
         video.preload = 'metadata';
         video.src = src;
+        video.addEventListener('loadedmetadata', () => {
+          try {
+            if (Number.isFinite(video.duration) && video.duration > 1.25) {
+              video.currentTime = Math.min(Math.max(1, video.duration * 0.08), video.duration - 0.25);
+            }
+          } catch (_) {}
+        }, { once: true });
 
         wrap.appendChild(label);
         wrap.appendChild(video);
