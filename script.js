@@ -16,19 +16,14 @@ document.querySelectorAll('.filter').forEach(btn=>btn.addEventListener('click',(
 document.getElementById('year').textContent=new Date().getFullYear();
 
 
-// Show the uploaded 3D & CGI showreel
+// 3D & CGI showreel
 const showreelVideo = document.getElementById('showreelVideo');
 const showreelPlaceholder = document.getElementById('showreelPlaceholder');
 
 if (showreelVideo) {
-  showreelVideo.hidden = false;
-
-  // Keep muted so browsers allow autoplay
   showreelVideo.muted = true;
   showreelVideo.defaultMuted = true;
-
-  // Start the reel automatically
-  showreelVideo.play().catch(() => {});
+  showreelVideo.playsInline = true;
 
   if (showreelPlaceholder) {
     showreelPlaceholder.hidden = true;
@@ -39,4 +34,28 @@ if (showreelVideo) {
   if (shell) {
     shell.classList.add('is-live');
   }
+
+  const startShowreel = () => {
+    showreelVideo.play().catch(() => {});
+  };
+
+  if (showreelVideo.readyState >= 2) {
+    startShowreel();
+  } else {
+    showreelVideo.addEventListener('canplay', startShowreel, { once: true });
+  }
+
+  showreelVideo.addEventListener('click', () => {
+    showreelVideo.muted = !showreelVideo.muted;
+
+    if (showreelVideo.paused) {
+      showreelVideo.play().catch(() => {});
+    }
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden && showreelVideo.paused) {
+      showreelVideo.play().catch(() => {});
+    }
+  });
 }
