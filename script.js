@@ -16,14 +16,20 @@ document.querySelectorAll('.filter').forEach(btn=>btn.addEventListener('click',(
 document.getElementById('year').textContent=new Date().getFullYear();
 
 
-// Showreel progressive enhancement: the site remains complete even before the reel is added.
-const showreelVideo=document.getElementById('showreelVideo');
-const showreelPlaceholder=document.getElementById('showreelPlaceholder');
-if(showreelVideo){
-  const source=showreelVideo.querySelector('source');
-  if(source){
-    fetch(source.src,{method:'HEAD'}).then(r=>{
-      if(r.ok){showreelVideo.hidden=false;if(showreelPlaceholder)showreelPlaceholder.hidden=true;const shell=document.querySelector('.hero-reel');if(shell)shell.classList.add('is-live');}
-    }).catch(()=>{});
+// Show the uploaded 3D & CGI showreel
+const showreelVideo = document.getElementById('showreelVideo');
+const showreelPlaceholder = document.getElementById('showreelPlaceholder');
+
+if (showreelVideo) {
+  showreelVideo.hidden = false;
+
+  if (showreelPlaceholder) {
+    showreelPlaceholder.hidden = true;
+  }
+
+  const shell = document.querySelector('.hero-reel');
+
+  if (shell) {
+    shell.classList.add('is-live');
   }
 }
