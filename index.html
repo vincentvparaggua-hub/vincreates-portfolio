@@ -242,6 +242,84 @@ footer{
   .render-lightbox{padding:14px;}
 }
 
+
+/* Unified full-project media presentation */
+.media-project-panel{
+  width:min(94vw,1400px);
+  max-width:1400px;
+}
+
+.media-project-gallery{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:24px;
+}
+
+.media-project-gallery .video-project-item{
+  width:100%;
+}
+
+.media-project-gallery .video-project-item video{
+  display:block;
+  width:100%;
+  aspect-ratio:16 / 9;
+  height:auto;
+  max-height:none;
+  object-fit:contain;
+  background:#000;
+  border-radius:16px;
+}
+
+/* VINCREATES PARFUM project:
+   Hero + Fisheye stacked on the left, Macro on the right */
+.media-project-gallery.perfume-gallery{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  grid-template-areas:
+    "hero macro"
+    "fisheye macro";
+  gap:18px;
+  align-items:start;
+}
+
+.media-project-gallery.perfume-gallery .perfume-hero{grid-area:hero;}
+.media-project-gallery.perfume-gallery .perfume-macro{grid-area:macro;}
+.media-project-gallery.perfume-gallery .perfume-fisheye{grid-area:fisheye;}
+
+.media-project-gallery.perfume-gallery .image-project-item{
+  min-width:0;
+}
+
+.media-project-gallery.perfume-gallery .image-project-item img{
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:none;
+  object-fit:contain;
+  background:#000;
+  border-radius:14px;
+}
+
+@media (max-width:760px){
+  .media-project-panel{
+    width:auto;
+    margin:2vh 12px;
+    max-height:96vh;
+  }
+
+  .media-project-gallery.perfume-gallery{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "hero"
+      "macro"
+      "fisheye";
+  }
+
+  .media-project-gallery .video-project-item video{
+    aspect-ratio:16 / 9;
+  }
+}
+
 </style>
 
 </head>
@@ -737,6 +815,7 @@ function closeMediaProject() {
     if (gallery) {
       gallery.querySelectorAll('video').forEach(v => v.pause());
       gallery.innerHTML = '';
+      gallery.classList.remove('perfume-gallery');
     }
     document.body.style.overflow = '';
   }
@@ -775,10 +854,20 @@ function closeMediaProject() {
       title.textContent = button.dataset.title || 'Project';
       if (mediaType) mediaType.textContent = button.dataset.mediaType || (images.length ? '3D RENDERS' : '3D ANIMATION');
       gallery.innerHTML = '';
+      gallery.classList.remove('perfume-gallery');
 
       if (images.length) {
+        const isPerfumeProject = (button.dataset.title || '').includes('VINCREATES PARFUM');
+        if (isPerfumeProject) gallery.classList.add('perfume-gallery');
+
         images.forEach((src, index) => {
           const wrap = document.createElement('div');
+          wrap.className = 'image-project-item';
+          if (isPerfumeProject) {
+            if (index === 0) wrap.classList.add('perfume-hero');
+            if (index === 1) wrap.classList.add('perfume-macro');
+            if (index === 2) wrap.classList.add('perfume-fisheye');
+          }
           const label = document.createElement('p');
           label.className = 'tag';
           label.textContent = labels[index] || `IMAGE ${index + 1} OF ${images.length}`;
@@ -799,6 +888,7 @@ function closeMediaProject() {
       } else {
         videos.forEach((src, index) => {
           const wrap = document.createElement('div');
+          wrap.className = 'video-project-item';
           const label = document.createElement('p');
           label.className = 'tag';
           label.textContent = videos.length > 1 ? `VIDEO ${index + 1} OF ${videos.length}` : 'PROJECT VIDEO';
