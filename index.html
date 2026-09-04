@@ -567,6 +567,31 @@ footer{
   }
 }
 
+
+/* 3D render full-project gallery */
+.media-project-gallery:not(.perfume-gallery) .image-project-item{
+  min-width:0;
+}
+.media-project-gallery:not(.perfume-gallery):has(.image-project-item){
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:start;
+}
+.media-project-gallery:not(.perfume-gallery) .image-project-item img{
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:none;
+  object-fit:contain;
+  background:#000;
+  border-radius:14px;
+  cursor:zoom-in;
+}
+@media (max-width:760px){
+  .media-project-gallery:not(.perfume-gallery):has(.image-project-item){
+    grid-template-columns:1fr;
+  }
+}
+
 </style>
 
 </head>
@@ -735,21 +760,76 @@ footer{
       <p class="section-note"><a class="text-link" href="#work" data-back-categories>← Back to categories</a></p>
     </div>
     <div class="work-grid">
-      <article class="work-card media-project-card render-project-card" tabindex="0" role="button" aria-label="Open VINCREATES PARFUM full project">
-        <div class="media">
-          <img class="portfolio-preview" src="assets/gallery/vincreates-parfum/Red parfum pt1.png" alt="VINCREATES PARFUM 3D product visualization" loading="lazy" decoding="async">
-        </div>
+      <article class="work-card media-project-card render-project-card" tabindex="0" role="button" aria-label="Open VINCREATES PARFUM — 3D Product Visualization full project">
+        <div class="media"><img class="portfolio-preview" src="assets/gallery/vincreates-parfum/Red parfum pt1.png" alt="VINCREATES PARFUM — 3D Product Visualization" loading="lazy" decoding="async"></div>
         <div class="card-copy">
-          <div>
-            <p class="tag">3D &amp; CGI · PRODUCT VISUALIZATION · ART DIRECTION</p>
-            <h3>VINCREATES PARFUM — 3D Product Visualization</h3>
-          </div>
+          <div><p class="tag">3D &amp; CGI · PRODUCT VISUALIZATION · ART DIRECTION</p><h3>VINCREATES PARFUM — 3D Product Visualization</h3></div>
           <p>Self-initiated luxury fragrance concept focused on product modeling, glass and chrome materials, cinematic lighting, rendering and post-production.</p>
           <button class="text-link media-project-open" type="button"
             data-title="VINCREATES PARFUM — 3D Product Visualization"
-            data-media-type="3D &amp; CGI · PRODUCT VISUALIZATION"
+            data-media-type="3D &amp; CGI · PRODUCT VISUALIZATION · ART DIRECTION"
             data-images='["assets/gallery/vincreates-parfum/Red parfum pt1.png","assets/gallery/vincreates-parfum/Red parfum pt2.png","assets/gallery/vincreates-parfum/Red parfum pt3.png"]'
             data-labels='["HERO RENDER","MACRO DETAIL","EXPERIMENTAL / FISHEYE"]'>View full project ↗</button>
+        </div>
+      </article>
+      <article class="work-card media-project-card render-project-card" tabindex="0" role="button" aria-label="Open SUGAR RUSH — Stylized 3D Environment full project">
+        <div class="media"><img class="portfolio-preview" src="assets/gallery/sugar-rush/Sugar rush.png" alt="SUGAR RUSH — Stylized 3D Environment" loading="lazy" decoding="async"></div>
+        <div class="card-copy">
+          <div><p class="tag">3D &amp; CGI · ENVIRONMENT DESIGN · MODELING · LIGHTING</p><h3>SUGAR RUSH — Stylized 3D Environment</h3></div>
+          <p>A stylized candy-inspired environment exploring playful world building, prop design, lighting and multiple scene variations.</p>
+          <button class="text-link media-project-open" type="button"
+            data-title="SUGAR RUSH — Stylized 3D Environment"
+            data-media-type="3D &amp; CGI · ENVIRONMENT DESIGN · MODELING · LIGHTING"
+            data-images='["assets/gallery/sugar-rush/Sugar rush.png","assets/gallery/sugar-rush/Candy Trees.png","assets/gallery/sugar-rush/Candy Trees Wide and close up.png","assets/gallery/sugar-rush/sugar rush boxes.png","assets/gallery/sugar-rush/pacman train.png","assets/gallery/sugar-rush/Night scene 2.png","assets/gallery/sugar-rush/Night scene 1.png"]'
+            data-labels='["HERO ENVIRONMENT","CANDY FOREST","WIDE / CLOSE ENVIRONMENT","PROP DESIGN","PACMAN TRAIN","NIGHT SCENE II","NIGHT SCENE I"]'>View full project ↗</button>
+        </div>
+      </article>
+      <article class="work-card media-project-card render-project-card" tabindex="0" role="button" aria-label="Open PARANORMAN — 3D Environment Series full project">
+        <div class="media"><img class="portfolio-preview" src="assets/gallery/paranorman/paranorman woods.png" alt="PARANORMAN — 3D Environment Series" loading="lazy" decoding="async"></div>
+        <div class="card-copy">
+          <div><p class="tag">3D &amp; CGI · ENVIRONMENT DESIGN · LIGHTING · SET DESIGN</p><h3>PARANORMAN — 3D Environment Series</h3></div>
+          <p>A cinematic environment series exploring theatrical, school and woodland locations through atmospheric 3D set design and lighting.</p>
+          <button class="text-link media-project-open" type="button"
+            data-title="PARANORMAN — 3D Environment Series"
+            data-media-type="3D &amp; CGI · ENVIRONMENT DESIGN · LIGHTING · SET DESIGN"
+            data-images='["assets/gallery/paranorman/paranorman woods.png","assets/gallery/paranorman/gymnasium Basketball Court with chairs.png","assets/gallery/paranorman/Long Backstage.png","assets/gallery/paranorman/School The takis curse.png","assets/gallery/paranorman/Sideview stage.png","assets/gallery/paranorman/Theater stage.png"]'
+            data-labels='["WOODS","GYMNASIUM","BACKSTAGE","SCHOOL","SIDE STAGE","THEATER STAGE"]'>View full project ↗</button>
+        </div>
+      </article>
+      <article class="work-card media-project-card render-project-card" tabindex="0" role="button" aria-label="Open PROVINCE LIFE — 3D Miniature Environment full project">
+        <div class="media"><img class="portfolio-preview" src="assets/gallery/province-life-miniature/wide.png" alt="PROVINCE LIFE — 3D Miniature Environment" loading="lazy" decoding="async"></div>
+        <div class="card-copy">
+          <div><p class="tag">3D &amp; CGI · ENVIRONMENT DESIGN · MODELING · LIGHTING</p><h3>PROVINCE LIFE — 3D Miniature Environment</h3></div>
+          <p>A miniature rural environment focused on provincial architecture, environmental detail, composition and warm natural lighting.</p>
+          <button class="text-link media-project-open" type="button"
+            data-title="PROVINCE LIFE — 3D Miniature Environment"
+            data-media-type="3D &amp; CGI · ENVIRONMENT DESIGN · MODELING · LIGHTING"
+            data-images='["assets/gallery/province-life-miniature/wide.png","assets/gallery/province-life-miniature/close up.png","assets/gallery/province-life-miniature/detail.png"]'
+            data-labels='["WIDE ENVIRONMENT","CLOSE UP","DETAIL"]'>View full project ↗</button>
+        </div>
+      </article>
+      <article class="work-card media-project-card render-project-card" tabindex="0" role="button" aria-label="Open UNIVERSITY PLAQUE — 3D Product Mockup full project">
+        <div class="media"><img class="portfolio-preview" src="assets/gallery/university-plaque/plaque1.png" alt="UNIVERSITY PLAQUE — 3D Product Mockup" loading="lazy" decoding="async"></div>
+        <div class="card-copy">
+          <div><p class="tag">3D &amp; CGI · PRODUCT VISUALIZATION · MODELING · MATERIALS</p><h3>UNIVERSITY PLAQUE — 3D Product Mockup</h3></div>
+          <p>A 3D plaque mockup developed to visualize the design, materials and presentation before production.</p>
+          <button class="text-link media-project-open" type="button"
+            data-title="UNIVERSITY PLAQUE — 3D Product Mockup"
+            data-media-type="3D &amp; CGI · PRODUCT VISUALIZATION · MODELING · MATERIALS"
+            data-images='["assets/gallery/university-plaque/plaque1.png","assets/gallery/university-plaque/plaque2.png","assets/gallery/university-plaque/plaque3.png","assets/gallery/university-plaque/plaque4.png"]'
+            data-labels='["HERO MOCKUP","ANGLE II","ANGLE III","DETAIL"]'>View full project ↗</button>
+        </div>
+      </article>
+      <article class="work-card media-project-card render-project-card" tabindex="0" role="button" aria-label="Open DRAGON CITY — Cinematic 3D Environment full project">
+        <div class="media"><img class="portfolio-preview" src="assets/gallery/dragon-render/sample render with Dragon.png" alt="DRAGON CITY — Cinematic 3D Environment" loading="lazy" decoding="async"></div>
+        <div class="card-copy">
+          <div><p class="tag">3D &amp; CGI · ENVIRONMENT DESIGN · CREATURE · LIGHTING</p><h3>DRAGON CITY — Cinematic 3D Environment</h3></div>
+          <p>A cinematic fantasy environment study combining a large-scale city setting, atmospheric lighting and dragon-focused compositions.</p>
+          <button class="text-link media-project-open" type="button"
+            data-title="DRAGON CITY — Cinematic 3D Environment"
+            data-media-type="3D &amp; CGI · ENVIRONMENT DESIGN · CREATURE · LIGHTING"
+            data-images='["assets/gallery/dragon-render/test render.png","assets/gallery/dragon-render/sample render with Drgon1.png","assets/gallery/dragon-render/sample render with Dragon.png"]'
+            data-labels='["ENVIRONMENT","FLYING DRAGON","CLOSE DRAGON"]'>View full project ↗</button>
         </div>
       </article>
     </div>
