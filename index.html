@@ -57,9 +57,11 @@
   display:grid;
   gap:18px;
 }
-.media-project-gallery video{
+.media-project-gallery video,
+.media-project-gallery img{
   width:100%;
-  max-height:70vh;
+  max-height:78vh;
+  object-fit:contain;
   background:#000;
   border-radius:16px;
 }
@@ -238,7 +240,7 @@ footer{
       </a>
 
       <a class="work-card category-card" href="#category-3d-renders" data-open-category="category-3d-renders">
-        <div class="media"><img src="assets/gallery/sugar-rush.png" alt="3D Renders"></div>
+        <div class="media"><img src="assets/gallery/vincreates-parfum/Red parfum pt1.png" alt="VINCREATES PARFUM 3D product visualization"></div>
         <div class="card-copy"><div><h3>3D Renders</h3></div><p>Environment design, lighting studies, product renders and still imagery.</p></div>
       </a>
 
@@ -334,7 +336,14 @@ footer{
       <p class="section-note"><a class="text-link" href="#work" data-back-categories>← Back to categories</a></p>
     </div>
     <div class="work-grid">
-      <!-- Clean slate: new curated 3D render projects will be added here. -->
+      <article class="work-card media-project-card">
+        <div class="media"><img class="portfolio-preview" src="assets/gallery/vincreates-parfum/Red parfum pt1.png" alt="VINCREATES PARFUM luxury fragrance 3D product visualization" loading="lazy" decoding="async"></div>
+        <div class="card-copy">
+          <div><p class="tag">3D &amp; CGI · PRODUCT VISUALIZATION · ART DIRECTION</p><h3>VINCREATES PARFUM — 3D Product Visualization</h3></div>
+          <p>Self-initiated luxury fragrance concept focused on product modeling, glass and chrome materials, cinematic lighting, rendering and post-production.</p>
+          <button class="text-link media-project-open" type="button" data-title="VINCREATES PARFUM — 3D Product Visualization" data-media-type="3D &amp; CGI · PRODUCT VISUALIZATION" data-images='["assets/gallery/vincreates-parfum/Red parfum pt1.png","assets/gallery/vincreates-parfum/Red parfum pt2.png","assets/gallery/vincreates-parfum/Red parfum pt3.png"]' data-labels='["HERO","DETAIL","EXPERIMENTAL / FISHEYE"]'>View full project ↗</button>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -652,7 +661,7 @@ function closeMediaProject() {
   document.querySelectorAll('.media-project-card .media').forEach(media => {
     media.setAttribute('tabindex', '0');
     media.setAttribute('role', 'button');
-    media.setAttribute('aria-label', 'Open project video');
+    media.setAttribute('aria-label', 'Open project');
 
     const openFromThumbnail = () => {
       const card = media.closest('.media-project-card');
@@ -673,36 +682,55 @@ function closeMediaProject() {
     button.addEventListener('click', () => {
       if (!modal || !gallery || !title) return;
       let videos = [];
+      let images = [];
+      let labels = [];
       try { videos = JSON.parse(button.dataset.videos || '[]'); } catch (_) {}
-      if (!videos.length) return;
+      try { images = JSON.parse(button.dataset.images || '[]'); } catch (_) {}
+      try { labels = JSON.parse(button.dataset.labels || '[]'); } catch (_) {}
+      if (!videos.length && !images.length) return;
 
       title.textContent = button.dataset.title || 'Project';
-      if (mediaType) mediaType.textContent = button.dataset.mediaType || '3D ANIMATION';
+      if (mediaType) mediaType.textContent = button.dataset.mediaType || (images.length ? '3D RENDERS' : '3D ANIMATION');
       gallery.innerHTML = '';
 
-      videos.forEach((src, index) => {
-        const wrap = document.createElement('div');
-        const label = document.createElement('p');
-        label.className = 'tag';
-        label.textContent = videos.length > 1 ? `VIDEO ${index + 1} OF ${videos.length}` : 'PROJECT VIDEO';
-
-        const video = document.createElement('video');
-        video.controls = true;
-        video.playsInline = true;
-        video.preload = 'metadata';
-        video.src = src;
-        video.addEventListener('loadedmetadata', () => {
-          try {
-            if (Number.isFinite(video.duration) && video.duration > 1.25) {
-              video.currentTime = Math.min(Math.max(1, video.duration * 0.08), video.duration - 0.25);
-            }
-          } catch (_) {}
-        }, { once: true });
-
-        wrap.appendChild(label);
-        wrap.appendChild(video);
-        gallery.appendChild(wrap);
-      });
+      if (images.length) {
+        images.forEach((src, index) => {
+          const wrap = document.createElement('div');
+          const label = document.createElement('p');
+          label.className = 'tag';
+          label.textContent = labels[index] || `IMAGE ${index + 1} OF ${images.length}`;
+          const image = document.createElement('img');
+          image.src = src;
+          image.alt = `${button.dataset.title || 'Project'} — ${label.textContent}`;
+          image.loading = 'eager';
+          image.decoding = 'async';
+          wrap.appendChild(label);
+          wrap.appendChild(image);
+          gallery.appendChild(wrap);
+        });
+      } else {
+        videos.forEach((src, index) => {
+          const wrap = document.createElement('div');
+          const label = document.createElement('p');
+          label.className = 'tag';
+          label.textContent = videos.length > 1 ? `VIDEO ${index + 1} OF ${videos.length}` : 'PROJECT VIDEO';
+          const video = document.createElement('video');
+          video.controls = true;
+          video.playsInline = true;
+          video.preload = 'metadata';
+          video.src = src;
+          video.addEventListener('loadedmetadata', () => {
+            try {
+              if (Number.isFinite(video.duration) && video.duration > 1.25) {
+                video.currentTime = Math.min(Math.max(1, video.duration * 0.08), video.duration - 0.25);
+              }
+            } catch (_) {}
+          }, { once: true });
+          wrap.appendChild(label);
+          wrap.appendChild(video);
+          gallery.appendChild(wrap);
+        });
+      }
 
       modal.classList.add('is-open');
       modal.setAttribute('aria-hidden', 'false');
