@@ -592,6 +592,24 @@ footer{
   }
 }
 
+
+/* Focused Selected Work category mode */
+body.category-focus-mode .hero,
+body.category-focus-mode .intro-strip,
+body.category-focus-mode #featured,
+body.category-focus-mode #work,
+body.category-focus-mode #about,
+body.category-focus-mode #contact,
+body.category-focus-mode footer{
+  display:none !important;
+}
+body.category-focus-mode main{
+  min-height:calc(100vh - 74px);
+}
+body.category-focus-mode .portfolio-category:not([hidden]){
+  padding-top:42px;
+}
+
 </style>
 
 </head>
@@ -1363,6 +1381,51 @@ function closeMediaProject() {
   window.addEventListener('resize', () => {
     if (window.innerWidth > 760) closeMobileNav();
   });
+})();
+</script>
+
+
+<script>
+(() => {
+  const body = document.body;
+  const categoryLinks = document.querySelectorAll('[data-open-category]');
+  const backLinks = document.querySelectorAll('[data-back-categories]');
+  const mobileToggle = document.querySelector('.mobile-menu-toggle');
+  const mobileNav = document.getElementById('mobileNav');
+
+  function enterCategoryFocus() {
+    body.classList.add('category-focus-mode');
+    if (mobileNav) mobileNav.classList.remove('is-open');
+    if (mobileToggle) {
+      mobileToggle.setAttribute('aria-expanded', 'false');
+      mobileToggle.textContent = 'MENU ☰';
+    }
+  }
+
+  function leaveCategoryFocus() {
+    body.classList.remove('category-focus-mode');
+  }
+
+  categoryLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      enterCategoryFocus();
+    });
+  });
+
+  backLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      leaveCategoryFocus();
+    });
+  });
+
+  // If a category URL is opened/refreshed directly, keep the focused experience.
+  function syncFocusFromHash() {
+    if (location.hash.startsWith('#category-')) {
+      enterCategoryFocus();
+    }
+  }
+  window.addEventListener('hashchange', syncFocusFromHash);
+  syncFocusFromHash();
 })();
 </script>
 
